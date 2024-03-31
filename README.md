@@ -44,7 +44,7 @@ ggplot(Happiness, aes(x = GDP.per.capita, y = Happiness)) +
         panel.grid.minor = element_blank())  # Removes the minor grid lines
 
 ```
-![powerbi-1](https://github.com/dbenjamin9/SQL-HR-Project-Data-ANALYSIS/blob/main/scr1.png)
+![powerbi-1](https://github.com/dbenjamin9/R-studio-test1/blob/main/GDP%20PER%20CAPITA%20LM%20Plot1.png)
 
 ![powerbi-2](https://github.com/dbenjamin9/SQL-HR-Project-Data-ANALYSIS/blob/main/scr2.png)
 
