@@ -67,7 +67,7 @@ skew(lmGDP$residuals)
 ```{r}
 hist(lmGDP$residuals)
 ```
-
+![Hist Plot](https://github.com/dbenjamin9/R-studio-test1/blob/main/histlmgdp.png)
 ```{r}
 mean(lmGDP$residuals) 
 mse(lmGDP$fitted.values, Happiness$Happiness) 
