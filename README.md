@@ -46,13 +46,14 @@ ggplot(Happiness, aes(x = GDP.per.capita, y = Happiness)) +
 ```
 ![powerbi-1](https://github.com/dbenjamin9/R-studio-test1/blob/main/GDP%20PER%20CAPITA%20LM%20Plot1.png)
 
-![powerbi-2](https://github.com/dbenjamin9/SQL-HR-Project-Data-ANALYSIS/blob/main/scr2.png)
-
 Looking at the graph we can see that GDP per capita and Happiness have positive inear Relationship
 
 ```{r cars}
 autoplot(lmGDP)
 ```
+
+![Autoplot](https://github.com/dbenjamin9/R-studio-test1/blob/main/image2r.png)
+
 Looking at our autoplots we can see that Observations 12, 148, and 156 may be skewing our data
 ```{r}
 bptest(lmGDP)
