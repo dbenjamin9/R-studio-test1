@@ -34,10 +34,20 @@ explanation: Multiple R-squared:  0.6303,	Adjusted R-squared:  0.6278 -- GDP exp
 p-value: < 2.2e-16 -- Model significant
 
 ```{r}
+library(ggplot2)
+
 ggplot(Happiness, aes(x = GDP.per.capita, y = Happiness)) +
-  geom_point(col = 'blue') + stat_smooth(method = 'lm', color = 'red') +
-  labs(title = 'GDP Per Capita on Overall Happiness Score')
+  geom_point(col = 'blue') +
+  stat_smooth(method = 'lm', color = 'red') +
+  labs(title = 'GDP Per Capita on Overall Happiness Score') +
+  theme(panel.grid.major = element_blank(),  # Removes the major grid lines
+        panel.grid.minor = element_blank())  # Removes the minor grid lines
+
 ```
+![powerbi-1](https://github.com/dbenjamin9/SQL-HR-Project-Data-ANALYSIS/blob/main/scr1.png)
+
+![powerbi-2](https://github.com/dbenjamin9/SQL-HR-Project-Data-ANALYSIS/blob/main/scr2.png)
+
 Looking at the graph we can see that GDP per capita and Happiness have positive inear Relationship
 
 ```{r cars}
