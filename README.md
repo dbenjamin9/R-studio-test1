@@ -93,7 +93,7 @@ ggplot(Happiness, aes(x = Social.support, y = Happiness)) +
   geom_point(col = 'blue') + stat_smooth(method = 'lm', color = 'red') +
   labs(title = 'Social Support on Overall Happiness Score') ##Linear Relationship
 ```
-
+![](https://github.com/dbenjamin9/R-studio-test1/blob/main/social%20support%20on%20onverall%20Happiness%20SCORE.png)
 ```{r}
 autoplot(lmSocial) ##Observations 102, 148, 155, and maybe 151 can be skewing the data
 ```
