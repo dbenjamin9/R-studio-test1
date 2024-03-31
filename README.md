@@ -97,6 +97,7 @@ ggplot(Happiness, aes(x = Social.support, y = Happiness)) +
 ```{r}
 autoplot(lmSocial) ##Observations 102, 148, 155, and maybe 151 can be skewing the data
 ```
+![Autoplot LM SOCIAL](https://github.com/dbenjamin9/R-studio-test1/blob/main/autoplot(lmSocial).png)
 ```{r}
 bptest(lmSocial) ##homoskedastic (good)-- p-value > 0.05 -- assumption of normally distributed errors
 ```
@@ -107,6 +108,7 @@ skew(lmSocial$residuals) ###p-value > .05 - indicative of normal distribution
 ```{r}
 hist(lmSocial$residuals) ##look pretty normal
 ```
+![HistLMSOCIAL](https://github.com/dbenjamin9/R-studio-test1/blob/main/hist%20lmSocial%24residuals.png)
 ```{r}
 mean(lmSocial$residuals) ##mean close to 0 indicates normally distributed
 ```
@@ -135,11 +137,11 @@ ggplot(Happiness, aes(x = Healthy.life.expectancy, y = Happiness)) +
   geom_point(col = 'blue') + stat_smooth(method = 'lm', color = 'red') +
   labs(title = 'Healthy Life Expectancy on Overall Happiness Score')
 ```
-
+![Healthy Life Expectancy on Overall Happiness Score](https://github.com/dbenjamin9/R-studio-test1/blob/main/Healthy%20Life%20Expectancy%20on%20Overall%20Happiness%20Score.png)
 ```{r}
 autoplot(lmHealth) ##86, 152, and maybe 99 may be skewing the data
 ```
-
+![lmHealth](https://github.com/dbenjamin9/R-studio-test1/blob/main/autoplot(lmHealth).png)
 ```{r}
 bptest(lmHealth) ##homoskedastic (good)-- p-value > 0.05 -- assumption of normally distributed errors
 ```
@@ -150,6 +152,7 @@ skew(lmHealth$residuals) ###p-value > .05 - indicative of normal distribution
 ```{r}
 hist(lmHealth$residuals)
 ```
+![](https://github.com/dbenjamin9/R-studio-test1/blob/main/hist(lmHealth%24residuals).png)
 
 ```{r}
 mean(lmHealth$residuals) ##mean close to 0 indicates normally distributed
@@ -177,11 +180,11 @@ ggplot(Happiness, aes(x = Perceptions.of.corruption, y = Happiness)) +
   geom_point(col = 'blue') + stat_smooth(method = 'lm', color = 'red') +
   labs(title = 'Perception of Corruption on Overall Happiness Score')
 ```
-
+![](https://github.com/dbenjamin9/R-studio-test1/blob/main/P1erception%20of%20Corruption%20on%20Overall%20Happiness%20Score.png)
 ```{r}
 autoplot(lmPerception) ##The observations 152, 153, 156 are skewing the model
 ```
-
+![](https://github.com/dbenjamin9/R-studio-test1/blob/main/autoplot(lmPerception)2.png)
 ```{r}
 bptest(lmPerception) ##heteroskedastic (bad)-- p-value < 0.05 -- assumption of skewed errors
 skew(lmPerception$residuals) ###p-value < .05 - indicative of skewed distribution
@@ -190,6 +193,7 @@ skew(lmPerception$residuals) ###p-value < .05 - indicative of skewed distributio
 ```{r}
 hist(lmPerception$residuals) ##left skewed
 ```
+![](https://github.com/dbenjamin9/R-studio-test1/blob/main/histlmPerception%24residuals.png)
 
 ```{r}
 mean(lmPerception$residuals) ##mean close to 0 indicates normally distributed
@@ -208,7 +212,7 @@ ggplot(modelResults, aes(index, .std.resid)) +
   scale_color_manual(values = c('Above Threshold' = 'red', 'Below Threshold' = 'purple')) +
   guides(color = 'none')
 ```
-
+![](https://github.com/dbenjamin9/R-studio-test1/blob/main/Above%20%20threshold%20ggplot.png)
 ```{r}
 sum(abs(modelResults$.std.resid) > 3)
 subset(modelResults$index, abs(modelResults$.std.resid) > 3)
@@ -233,7 +237,7 @@ summary(lmPerception)##Multiple R-squared:  0.1969,	Adjusted R-squared:  0.1916
 ```{r}
 autoplot(lmPerception) ##The observations 153, 156 are still slightly skewing the model
 ```
-
+![](https://github.com/dbenjamin9/R-studio-test1/blob/main/autoplotlmPerception%20152%20removed.png)
 ```{r}
 bptest(lmPerception) ##homoskedastic: p-value > 0.05 -- assumption of normality 
 skew(lmPerception$residuals) ###p-value > .05 - indicative of normal
@@ -242,7 +246,7 @@ skew(lmPerception$residuals) ###p-value > .05 - indicative of normal
 ```{r}
 hist(lmPerception$residuals) ##look pretty normal -- maybe a slight right skew
 ```
-
+![](https://github.com/dbenjamin9/R-studio-test1/blob/main/hist1lmPerception%24residuals.png)
 ```{r}
 mean(lmPerception$residuals) ##mean close to 0 indicates normally distributed
 mse(lmPerception$fitted.values, Happiness$Happiness) #0.9727083
@@ -285,15 +289,18 @@ vif(lmHappy) ##None are above 10 so none are are high correlated to where they w
 ```{r}
 hist(lmHappy$residuals) ##slightly left skewed
 ```
+![](https://github.com/dbenjamin9/R-studio-test1/blob/main/slightly%20left%20skewed11.png)
+
 ```{r}
 skew(lmHappy$residuals) ##heteroskedastic -- p-value < 0.05
 bptest(lmHappy) ##heteroskedastic -- p-value < 0.05 -- skewed distributed errors
 autoplot(lmHappy) ##observation 152,153,148, and maybe 34 seem to be outliers
 ```
+![](https://github.com/dbenjamin9/R-studio-test1/blob/main/and%20maybe%2034%20seem%20to%20be%20outliers.png)
 ```{r}
 plot(lmHappy, which = c(4)) ##shows cook's distance-in which 34,148,152 looks problematic
 ```
-
+![](https://github.com/dbenjamin9/R-studio-test1/blob/main/plot(lmHappy%2C%20which%20%3D%20c(4)).png)
 ```{r}
 modelResults <- augment(lmHappy) %>%
   mutate(index = 1:n())
@@ -305,10 +312,11 @@ ggplot(modelResults, aes(index, .std.resid)) +
   scale_color_manual(values = c('Above Threshold' = 'red', 'Below Threshold' = 'blue')) +
   guides(color = 'none')
 ```
+![](https://github.com/dbenjamin9/R-studio-test1/blob/main/Above%20Threshold%20black2.png)
 ```{r}
 sum(abs(modelResults$.std.resid) > 3)
 subset(modelResults$index, abs(modelResults$.std.resid) > 3)
-##Observations 148 (Botswana) and 152 (Rwanda) are above the desired threshold
+Observations 148 (Botswana) and 152 (Rwanda) are above the desired threshold
 ```
 ## Predictions
 
